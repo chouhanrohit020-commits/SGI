@@ -1,0 +1,8 @@
+{
+  "name": "Remix: SGI Casting Predictor",
+  "description": "AI-powered rejection prediction and metallurgical correction tool for Ductile Iron (SGI) casting foundry processes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
