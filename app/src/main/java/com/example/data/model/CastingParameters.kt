@@ -2,6 +2,8 @@ package com.example.data.model
 
 data class CastingParameters(
     val heatCode: String = "",
+    val batchNumber: String = "",
+    val shift: String = "",
     val carbon: Double = 3.7,
     val silicon: Double = 2.5,
     val manganese: Double = 0.3,

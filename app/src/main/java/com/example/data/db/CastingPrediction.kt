@@ -11,6 +11,8 @@ data class CastingPrediction(
     
     // Heat ID / Batch No
     val heatCode: String = "",
+    val batchNumber: String = "",
+    val shift: String = "",
     
     // Chemical Composition inputs
     val carbon: Double,
@@ -47,6 +49,8 @@ data class CastingPrediction(
     fun toParameters(): CastingParameters {
         return CastingParameters(
             heatCode = heatCode,
+            batchNumber = batchNumber,
+            shift = shift,
             carbon = carbon,
             silicon = silicon,
             manganese = manganese,

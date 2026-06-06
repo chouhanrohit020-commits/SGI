@@ -82,6 +82,8 @@ class CastingViewModel(private val repository: CastingRepository) : ViewModel() 
         val currentHeatCode = generateSystemHeatCode()
         _inputFields.value = mapOf(
             "heatCode" to currentHeatCode,
+            "batchNumber" to "1",
+            "shift" to "A",
             "carbon" to ideal.carbon.toString(),
             "silicon" to ideal.silicon.toString(),
             "manganese" to ideal.manganese.toString(),
@@ -104,6 +106,8 @@ class CastingViewModel(private val repository: CastingRepository) : ViewModel() 
     fun clearFields() {
         _inputFields.value = mapOf(
             "heatCode" to "",
+            "batchNumber" to "",
+            "shift" to "",
             "carbon" to "", "silicon" to "", "manganese" to "", "phosphorus" to "", "sulphur" to "",
             "chrome" to "", "copper" to "", "magnesium" to "", "pouringTemp" to "", "sandMoisture" to "",
             "compactability" to "", "mouldHardness" to "", "coreHardness" to "", "permeability" to "", "gcsValue" to ""
@@ -118,6 +122,8 @@ class CastingViewModel(private val repository: CastingRepository) : ViewModel() 
     fun loadPredictionRecord(record: CastingPrediction) {
         _inputFields.value = mapOf(
             "heatCode" to record.heatCode,
+            "batchNumber" to record.batchNumber,
+            "shift" to record.shift,
             "carbon" to record.carbon.toString(),
             "silicon" to record.silicon.toString(),
             "manganese" to record.manganese.toString(),
@@ -164,6 +170,8 @@ class CastingViewModel(private val repository: CastingRepository) : ViewModel() 
         // Parse the parameters safely - use Ideal defaults if user left them empty, to avoid crashes
         val params = CastingParameters(
             heatCode = fields["heatCode"] ?: "",
+            batchNumber = fields["batchNumber"] ?: "",
+            shift = fields["shift"] ?: "",
             carbon = fields["carbon"]?.toDoubleOrNull() ?: CastingParameters.IDEAL.carbon,
             silicon = fields["silicon"]?.toDoubleOrNull() ?: CastingParameters.IDEAL.silicon,
             manganese = fields["manganese"]?.toDoubleOrNull() ?: CastingParameters.IDEAL.manganese,
@@ -194,6 +202,8 @@ class CastingViewModel(private val repository: CastingRepository) : ViewModel() 
 
                 val predictionRecord = CastingPrediction(
                     heatCode = params.heatCode,
+                    batchNumber = params.batchNumber,
+                    shift = params.shift,
                     carbon = params.carbon,
                     silicon = params.silicon,
                     manganese = params.manganese,

@@ -66,7 +66,9 @@ class CastingRepository(private val predictionDao: CastingPredictionDao) {
         val prompt = """
             SGI (Spheroidal Graphite Iron / Ductile Iron) casting process parameters:
             
-            Heat Code / Batch No: ${if (params.heatCode.isBlank()) "N/A" else params.heatCode}
+            Heat Code: ${if (params.heatCode.isBlank()) "N/A" else params.heatCode}
+            Batch / Heat Entry number: ${if (params.batchNumber.isBlank()) "N/A" else params.batchNumber}
+            Shift: ${if (params.shift.isBlank()) "N/A" else params.shift}
             
             Chemical Composition:
             - Carbon (C): ${params.carbon}% (Target: 3.4% - 4.0%)
